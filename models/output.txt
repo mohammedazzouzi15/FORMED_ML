@@ -1,0 +1,26 @@
+Number of rows in the database:  116687
+[0]	validation_0-mae:0.70114	validation_1-mae:0.70206
+[1]	validation_0-mae:0.68284	validation_1-mae:0.68405
+[2]	validation_0-mae:0.66684	validation_1-mae:0.66865
+[3]	validation_0-mae:0.65147	validation_1-mae:0.65381
+[4]	validation_0-mae:0.63660	validation_1-mae:0.63924
+[5]	validation_0-mae:0.62337	validation_1-mae:0.62672
+[6]	validation_0-mae:0.60904	validation_1-mae:0.61269
+[7]	validation_0-mae:0.59557	validation_1-mae:0.59948
+[8]	validation_0-mae:0.58307	validation_1-mae:0.58721
+[9]	validation_0-mae:0.57054	validation_1-mae:0.57490
+[10]	validation_0-mae:0.55890	validation_1-mae:0.56365
+[11]	validation_0-mae:0.54858	validation_1-mae:0.55368
+[12]	validation_0-mae:0.53858	validation_1-mae:0.54411
+[13]	validation_0-mae:0.52858	validation_1-mae:0.53445
+[14]	validation_0-mae:0.51897	validation_1-mae:0.52512
+[15]	validation_0-mae:0.50979	validation_1-mae:0.51624
+[16]	validation_0-mae:0.50102	validation_1-mae:0.50788
+[17]	validation_0-mae:0.49271	validation_1-mae:0.49997
+[18]	validation_0-mae:0.48471	validation_1-mae:0.49238
+[19]	validation_0-mae:0.47717	validation_1-mae:0.48533
+[20]	validation_0-mae:0.46993	validation_1-mae:0.47831
+[21]	validation_0-mae:0.46292	validation_1-mae:0.47166
+[22]	validation_0-mae:0.45590	validation_1-mae:0.46471
+[23]	validation_0-mae:0.44962	validation_1-mae:0.45863
+[24]	validation_0-mae:0.44375	validation_1-mae:0.45321

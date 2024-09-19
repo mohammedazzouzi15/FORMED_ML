@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+*.xyz
 
 # Distribution / packaging
 .Python
@@ -127,3 +128,23 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+XYZ_FORMED
+models/training
+GNN_models/*
+*.db
+*.db-journal
+*.db.lock
+*.csv
+*.npy
+/ase_database/formed_test.db
+/ase_database/formed_test.db
+/ase_database/train/formed_train.db
+/ase_database/train/formed_train.db
+/ase_database/val/formed_val.db
+/ase_database/train/formed_train.db
+/ase_database/formed_test.db
+ase_database/formed_train.db
+ase_database/formed_val.db
+ase_database/formed.db
+Data_dimers_predicted.csv

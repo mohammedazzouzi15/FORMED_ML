@@ -1,0 +1,256 @@
+2024-09-18 14:26:52 (INFO): Setting env PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+2024-09-18 14:26:52 (INFO): Project root: /media/mohammed/Work/anaconda3/envs/fair-chem/lib/python3.11/site-packages/fairchem
+2024-09-18 14:26:52 (INFO): local rank base: 0
+2024-09-18 14:26:53 (INFO): amp: false
+cmd:
+  checkpoint_dir: /media/mohammed/Work/FORMED_ML/GNN_models/schnet/checkpoints/2024-09-18-14-26-40-S1_excschnet
+  commit: null
+  identifier: S1_excschnet
+  logs_dir: /media/mohammed/Work/FORMED_ML/GNN_models/schnet/logs/wandb/2024-09-18-14-26-40-S1_excschnet
+  print_every: 10
+  results_dir: /media/mohammed/Work/FORMED_ML/GNN_models/schnet/results/2024-09-18-14-26-40-S1_excschnet
+  seed: 0
+  timestamp_id: 2024-09-18-14-26-40-S1_excschnet
+  version: 1.2.0
+dataset:
+  a2g_args:
+    r_data_keys:
+    - S1_exc
+    r_energy: false
+    r_forces: false
+  format: ase_db
+  include_relaxed_energy: false
+  keep_in_memory: false
+  key_mapping:
+    S1_exc: energy
+  src: /media/mohammed/Work/FORMED_ML/ase_database/train/formed_train.db
+evaluation_metrics:
+  metrics:
+    energy:
+    - mae
+    - mse
+  primary_metric: energy_mae
+gp_gpus: null
+gpus: 1
+logger: wandb
+loss_functions:
+- energy:
+    fn: mae
+model:
+  cutoff: 6.0
+  hidden_channels: 256
+  name: schnet
+  num_filters: 128
+  num_gaussians: 100
+  num_interactions: 8
+  otf_graph: true
+  regress_forces: false
+  use_pbc: false
+optim:
+  batch_size: 64
+  eval_batch_size: 64
+  factor: 0.8
+  lr_initial: 0.0001
+  max_epochs: 1
+  mode: min
+  num_workers: 16
+  patience: 3
+  scheduler: ReduceLROnPlateau
+  warmup_factor: 0.2
+  warmup_steps: 2000
+outputs:
+  energy:
+    level: system
+    property: energy
+    shape: 1
+relax_dataset: {}
+slurm: {}
+task: {}
+test_dataset:
+  a2g_args:
+    r_data_keys:
+    - S1_exc
+    r_energy: false
+    r_forces: false
+  format: ase_db
+  include_relaxed_energy: false
+  keep_in_memory: false
+  key_mapping:
+    S1_exc: energy
+  src: /media/mohammed/Work/FORMED_ML/ase_database/formed_test.db
+trainer: ocp
+val_dataset:
+  a2g_args:
+    r_data_keys:
+    - S1_exc
+    r_energy: false
+    r_forces: false
+  format: ase_db
+  include_relaxed_energy: false
+  keep_in_memory: false
+  key_mapping:
+    S1_exc: energy
+  src: /media/mohammed/Work/FORMED_ML/ase_database/val/formed_val.db
+
+2024-09-18 14:26:55 (INFO): Loading model: schnet
+2024-09-18 14:26:55 (INFO): Loaded SchNetWrap with 1346817 parameters.
+2024-09-18 14:26:55 (INFO): Loading dataset: ase_db
+2024-09-18 14:27:03 (INFO): rank: 0: Sampler created...
+2024-09-18 14:27:03 (INFO): Created BalancedBatchSampler with sampler=<fairchem.core.common.data_parallel.StatefulDistributedSampler object at 0x7f08c112d290>, batch_size=64, drop_last=False
+2024-09-18 14:27:04 (INFO): rank: 0: Sampler created...
+2024-09-18 14:27:04 (INFO): Created BalancedBatchSampler with sampler=<fairchem.core.common.data_parallel.StatefulDistributedSampler object at 0x7f08b55c7750>, batch_size=64, drop_last=False
+2024-09-18 14:27:05 (INFO): rank: 0: Sampler created...
+2024-09-18 14:27:05 (INFO): Created BalancedBatchSampler with sampler=<fairchem.core.common.data_parallel.StatefulDistributedSampler object at 0x7f08b4164b10>, batch_size=64, drop_last=False
+2024-09-18 14:27:05 (INFO): Total time taken: 1.2874603271484375e-05
+2024-09-18 14:27:06 (INFO): energy_mae: 4.11e+00, energy_mse: 3.80e+01, loss: 4.11e+00, lr: 1.00e-04, epoch: 6.76e-03, step: 1.00e+01
+2024-09-18 14:27:06 (INFO): energy_mae: 1.97e+00, energy_mse: 7.17e+00, loss: 1.97e+00, lr: 1.00e-04, epoch: 1.35e-02, step: 2.00e+01
+2024-09-18 14:27:06 (INFO): energy_mae: 1.91e+00, energy_mse: 6.21e+00, loss: 1.91e+00, lr: 1.00e-04, epoch: 2.03e-02, step: 3.00e+01
+2024-09-18 14:27:06 (INFO): energy_mae: 1.61e+00, energy_mse: 5.33e+00, loss: 1.61e+00, lr: 1.00e-04, epoch: 2.70e-02, step: 4.00e+01
+2024-09-18 14:27:06 (INFO): energy_mae: 1.85e+00, energy_mse: 5.94e+00, loss: 1.85e+00, lr: 1.00e-04, epoch: 3.38e-02, step: 5.00e+01
+2024-09-18 14:27:07 (INFO): energy_mae: 1.50e+00, energy_mse: 4.58e+00, loss: 1.50e+00, lr: 1.00e-04, epoch: 4.05e-02, step: 6.00e+01
+2024-09-18 14:27:07 (INFO): energy_mae: 1.48e+00, energy_mse: 3.85e+00, loss: 1.48e+00, lr: 1.00e-04, epoch: 4.73e-02, step: 7.00e+01
+2024-09-18 14:27:07 (INFO): energy_mae: 1.34e+00, energy_mse: 3.07e+00, loss: 1.34e+00, lr: 1.00e-04, epoch: 5.41e-02, step: 8.00e+01
+2024-09-18 14:27:07 (INFO): energy_mae: 1.58e+00, energy_mse: 4.25e+00, loss: 1.58e+00, lr: 1.00e-04, epoch: 6.08e-02, step: 9.00e+01
+2024-09-18 14:27:07 (INFO): energy_mae: 1.61e+00, energy_mse: 4.63e+00, loss: 1.61e+00, lr: 1.00e-04, epoch: 6.76e-02, step: 1.00e+02
+2024-09-18 14:27:08 (INFO): energy_mae: 1.55e+00, energy_mse: 3.87e+00, loss: 1.55e+00, lr: 1.00e-04, epoch: 7.43e-02, step: 1.10e+02
+2024-09-18 14:27:08 (INFO): energy_mae: 1.48e+00, energy_mse: 3.65e+00, loss: 1.48e+00, lr: 1.00e-04, epoch: 8.11e-02, step: 1.20e+02
+2024-09-18 14:27:08 (INFO): energy_mae: 1.36e+00, energy_mse: 3.42e+00, loss: 1.36e+00, lr: 1.00e-04, epoch: 8.78e-02, step: 1.30e+02
+2024-09-18 14:27:08 (INFO): energy_mae: 1.21e+00, energy_mse: 2.73e+00, loss: 1.21e+00, lr: 1.00e-04, epoch: 9.46e-02, step: 1.40e+02
+2024-09-18 14:27:08 (INFO): energy_mae: 1.32e+00, energy_mse: 2.92e+00, loss: 1.32e+00, lr: 1.00e-04, epoch: 1.01e-01, step: 1.50e+02
+2024-09-18 14:27:08 (INFO): energy_mae: 1.19e+00, energy_mse: 2.44e+00, loss: 1.19e+00, lr: 1.00e-04, epoch: 1.08e-01, step: 1.60e+02
+2024-09-18 14:27:09 (INFO): energy_mae: 1.31e+00, energy_mse: 3.07e+00, loss: 1.31e+00, lr: 1.00e-04, epoch: 1.15e-01, step: 1.70e+02
+2024-09-18 14:27:09 (INFO): energy_mae: 1.38e+00, energy_mse: 3.09e+00, loss: 1.38e+00, lr: 1.00e-04, epoch: 1.22e-01, step: 1.80e+02
+2024-09-18 14:27:09 (INFO): energy_mae: 1.32e+00, energy_mse: 2.79e+00, loss: 1.32e+00, lr: 1.00e-04, epoch: 1.28e-01, step: 1.90e+02
+2024-09-18 14:27:09 (INFO): energy_mae: 1.28e+00, energy_mse: 3.53e+00, loss: 1.28e+00, lr: 1.00e-04, epoch: 1.35e-01, step: 2.00e+02
+2024-09-18 14:27:09 (INFO): energy_mae: 1.15e+00, energy_mse: 2.28e+00, loss: 1.15e+00, lr: 1.00e-04, epoch: 1.42e-01, step: 2.10e+02
+2024-09-18 14:27:10 (INFO): energy_mae: 1.09e+00, energy_mse: 1.98e+00, loss: 1.09e+00, lr: 1.00e-04, epoch: 1.49e-01, step: 2.20e+02
+2024-09-18 14:27:10 (INFO): energy_mae: 1.31e+00, energy_mse: 2.94e+00, loss: 1.31e+00, lr: 1.00e-04, epoch: 1.55e-01, step: 2.30e+02
+2024-09-18 14:27:10 (INFO): energy_mae: 1.27e+00, energy_mse: 2.81e+00, loss: 1.27e+00, lr: 1.00e-04, epoch: 1.62e-01, step: 2.40e+02
+2024-09-18 14:27:10 (INFO): energy_mae: 1.23e+00, energy_mse: 2.72e+00, loss: 1.23e+00, lr: 1.00e-04, epoch: 1.69e-01, step: 2.50e+02
+2024-09-18 14:27:10 (INFO): energy_mae: 1.23e+00, energy_mse: 3.01e+00, loss: 1.23e+00, lr: 1.00e-04, epoch: 1.76e-01, step: 2.60e+02
+2024-09-18 14:27:10 (INFO): energy_mae: 1.16e+00, energy_mse: 2.28e+00, loss: 1.16e+00, lr: 1.00e-04, epoch: 1.82e-01, step: 2.70e+02
+2024-09-18 14:27:11 (INFO): energy_mae: 1.45e+00, energy_mse: 3.52e+00, loss: 1.45e+00, lr: 1.00e-04, epoch: 1.89e-01, step: 2.80e+02
+2024-09-18 14:27:11 (INFO): energy_mae: 1.24e+00, energy_mse: 2.67e+00, loss: 1.24e+00, lr: 1.00e-04, epoch: 1.96e-01, step: 2.90e+02
+2024-09-18 14:27:11 (INFO): energy_mae: 1.06e+00, energy_mse: 2.02e+00, loss: 1.06e+00, lr: 1.00e-04, epoch: 2.03e-01, step: 3.00e+02
+2024-09-18 14:27:11 (INFO): energy_mae: 1.11e+00, energy_mse: 2.15e+00, loss: 1.11e+00, lr: 1.00e-04, epoch: 2.09e-01, step: 3.10e+02
+2024-09-18 14:27:11 (INFO): energy_mae: 1.05e+00, energy_mse: 1.99e+00, loss: 1.05e+00, lr: 1.00e-04, epoch: 2.16e-01, step: 3.20e+02
+2024-09-18 14:27:12 (INFO): energy_mae: 1.54e+00, energy_mse: 4.02e+00, loss: 1.54e+00, lr: 1.00e-04, epoch: 2.23e-01, step: 3.30e+02
+2024-09-18 14:27:12 (INFO): energy_mae: 1.05e+00, energy_mse: 2.13e+00, loss: 1.05e+00, lr: 1.00e-04, epoch: 2.30e-01, step: 3.40e+02
+2024-09-18 14:27:12 (INFO): energy_mae: 1.02e+00, energy_mse: 1.95e+00, loss: 1.02e+00, lr: 1.00e-04, epoch: 2.36e-01, step: 3.50e+02
+2024-09-18 14:27:12 (INFO): energy_mae: 1.16e+00, energy_mse: 2.21e+00, loss: 1.16e+00, lr: 1.00e-04, epoch: 2.43e-01, step: 3.60e+02
+2024-09-18 14:27:12 (INFO): energy_mae: 1.08e+00, energy_mse: 2.01e+00, loss: 1.08e+00, lr: 1.00e-04, epoch: 2.50e-01, step: 3.70e+02
+2024-09-18 14:27:12 (INFO): energy_mae: 1.04e+00, energy_mse: 1.87e+00, loss: 1.04e+00, lr: 1.00e-04, epoch: 2.57e-01, step: 3.80e+02
+2024-09-18 14:27:13 (INFO): energy_mae: 9.90e-01, energy_mse: 1.75e+00, loss: 9.90e-01, lr: 1.00e-04, epoch: 2.64e-01, step: 3.90e+02
+2024-09-18 14:27:13 (INFO): energy_mae: 1.18e+00, energy_mse: 2.45e+00, loss: 1.18e+00, lr: 1.00e-04, epoch: 2.70e-01, step: 4.00e+02
+2024-09-18 14:27:13 (INFO): energy_mae: 1.30e+00, energy_mse: 2.77e+00, loss: 1.30e+00, lr: 1.00e-04, epoch: 2.77e-01, step: 4.10e+02
+2024-09-18 14:27:13 (INFO): energy_mae: 1.15e+00, energy_mse: 2.39e+00, loss: 1.15e+00, lr: 1.00e-04, epoch: 2.84e-01, step: 4.20e+02
+2024-09-18 14:27:13 (INFO): energy_mae: 1.09e+00, energy_mse: 2.13e+00, loss: 1.09e+00, lr: 1.00e-04, epoch: 2.91e-01, step: 4.30e+02
+2024-09-18 14:27:14 (INFO): energy_mae: 1.12e+00, energy_mse: 2.28e+00, loss: 1.12e+00, lr: 1.00e-04, epoch: 2.97e-01, step: 4.40e+02
+2024-09-18 14:27:14 (INFO): energy_mae: 1.03e+00, energy_mse: 1.89e+00, loss: 1.03e+00, lr: 1.00e-04, epoch: 3.04e-01, step: 4.50e+02
+2024-09-18 14:27:14 (INFO): energy_mae: 9.78e-01, energy_mse: 1.78e+00, loss: 9.78e-01, lr: 1.00e-04, epoch: 3.11e-01, step: 4.60e+02
+2024-09-18 14:27:14 (INFO): energy_mae: 1.08e+00, energy_mse: 1.92e+00, loss: 1.08e+00, lr: 1.00e-04, epoch: 3.18e-01, step: 4.70e+02
+2024-09-18 14:27:14 (INFO): energy_mae: 1.44e+00, energy_mse: 3.44e+00, loss: 1.44e+00, lr: 1.00e-04, epoch: 3.24e-01, step: 4.80e+02
+2024-09-18 14:27:14 (INFO): energy_mae: 1.25e+00, energy_mse: 2.65e+00, loss: 1.25e+00, lr: 1.00e-04, epoch: 3.31e-01, step: 4.90e+02
+2024-09-18 14:27:15 (INFO): energy_mae: 1.06e+00, energy_mse: 2.15e+00, loss: 1.06e+00, lr: 1.00e-04, epoch: 3.38e-01, step: 5.00e+02
+2024-09-18 14:27:15 (INFO): energy_mae: 9.72e-01, energy_mse: 1.77e+00, loss: 9.72e-01, lr: 1.00e-04, epoch: 3.45e-01, step: 5.10e+02
+2024-09-18 14:27:15 (INFO): energy_mae: 9.33e-01, energy_mse: 1.50e+00, loss: 9.33e-01, lr: 1.00e-04, epoch: 3.51e-01, step: 5.20e+02
+2024-09-18 14:27:15 (INFO): energy_mae: 8.52e-01, energy_mse: 1.26e+00, loss: 8.52e-01, lr: 1.00e-04, epoch: 3.58e-01, step: 5.30e+02
+2024-09-18 14:27:15 (INFO): energy_mae: 1.12e+00, energy_mse: 2.34e+00, loss: 1.12e+00, lr: 1.00e-04, epoch: 3.65e-01, step: 5.40e+02
+2024-09-18 14:27:16 (INFO): energy_mae: 1.62e+00, energy_mse: 4.17e+00, loss: 1.62e+00, lr: 1.00e-04, epoch: 3.72e-01, step: 5.50e+02
+2024-09-18 14:27:16 (INFO): energy_mae: 1.53e+00, energy_mse: 3.96e+00, loss: 1.53e+00, lr: 1.00e-04, epoch: 3.78e-01, step: 5.60e+02
+2024-09-18 14:27:16 (INFO): energy_mae: 1.06e+00, energy_mse: 2.09e+00, loss: 1.06e+00, lr: 1.00e-04, epoch: 3.85e-01, step: 5.70e+02
+2024-09-18 14:27:16 (INFO): energy_mae: 8.94e-01, energy_mse: 1.43e+00, loss: 8.94e-01, lr: 1.00e-04, epoch: 3.92e-01, step: 5.80e+02
+2024-09-18 14:27:16 (INFO): energy_mae: 9.68e-01, energy_mse: 1.69e+00, loss: 9.68e-01, lr: 1.00e-04, epoch: 3.99e-01, step: 5.90e+02
+2024-09-18 14:27:16 (INFO): energy_mae: 1.03e+00, energy_mse: 1.81e+00, loss: 1.03e+00, lr: 1.00e-04, epoch: 4.05e-01, step: 6.00e+02
+2024-09-18 14:27:17 (INFO): energy_mae: 9.69e-01, energy_mse: 1.60e+00, loss: 9.69e-01, lr: 1.00e-04, epoch: 4.12e-01, step: 6.10e+02
+2024-09-18 14:27:17 (INFO): energy_mae: 1.04e+00, energy_mse: 1.90e+00, loss: 1.04e+00, lr: 1.00e-04, epoch: 4.19e-01, step: 6.20e+02
+2024-09-18 14:27:17 (INFO): energy_mae: 1.12e+00, energy_mse: 2.18e+00, loss: 1.12e+00, lr: 1.00e-04, epoch: 4.26e-01, step: 6.30e+02
+2024-09-18 14:27:17 (INFO): energy_mae: 9.76e-01, energy_mse: 1.63e+00, loss: 9.76e-01, lr: 1.00e-04, epoch: 4.32e-01, step: 6.40e+02
+2024-09-18 14:27:17 (INFO): energy_mae: 8.93e-01, energy_mse: 1.42e+00, loss: 8.93e-01, lr: 1.00e-04, epoch: 4.39e-01, step: 6.50e+02
+2024-09-18 14:27:18 (INFO): energy_mae: 9.58e-01, energy_mse: 1.62e+00, loss: 9.58e-01, lr: 1.00e-04, epoch: 4.46e-01, step: 6.60e+02
+2024-09-18 14:27:18 (INFO): energy_mae: 1.23e+00, energy_mse: 2.54e+00, loss: 1.23e+00, lr: 1.00e-04, epoch: 4.53e-01, step: 6.70e+02
+2024-09-18 14:27:18 (INFO): energy_mae: 9.78e-01, energy_mse: 1.65e+00, loss: 9.78e-01, lr: 1.00e-04, epoch: 4.59e-01, step: 6.80e+02
+2024-09-18 14:27:18 (INFO): energy_mae: 9.01e-01, energy_mse: 1.46e+00, loss: 9.01e-01, lr: 1.00e-04, epoch: 4.66e-01, step: 6.90e+02
+2024-09-18 14:27:18 (INFO): energy_mae: 1.08e+00, energy_mse: 2.14e+00, loss: 1.08e+00, lr: 1.00e-04, epoch: 4.73e-01, step: 7.00e+02
+2024-09-18 14:27:18 (INFO): energy_mae: 1.24e+00, energy_mse: 2.73e+00, loss: 1.24e+00, lr: 1.00e-04, epoch: 4.80e-01, step: 7.10e+02
+2024-09-18 14:27:19 (INFO): energy_mae: 1.17e+00, energy_mse: 2.41e+00, loss: 1.17e+00, lr: 1.00e-04, epoch: 4.86e-01, step: 7.20e+02
+2024-09-18 14:27:19 (INFO): energy_mae: 1.04e+00, energy_mse: 1.90e+00, loss: 1.04e+00, lr: 1.00e-04, epoch: 4.93e-01, step: 7.30e+02
+2024-09-18 14:27:19 (INFO): energy_mae: 1.05e+00, energy_mse: 2.18e+00, loss: 1.05e+00, lr: 1.00e-04, epoch: 5.00e-01, step: 7.40e+02
+2024-09-18 14:27:19 (INFO): energy_mae: 9.15e-01, energy_mse: 1.51e+00, loss: 9.15e-01, lr: 1.00e-04, epoch: 5.07e-01, step: 7.50e+02
+2024-09-18 14:27:19 (INFO): energy_mae: 1.02e+00, energy_mse: 1.88e+00, loss: 1.02e+00, lr: 1.00e-04, epoch: 5.14e-01, step: 7.60e+02
+2024-09-18 14:27:20 (INFO): energy_mae: 1.02e+00, energy_mse: 1.73e+00, loss: 1.02e+00, lr: 1.00e-04, epoch: 5.20e-01, step: 7.70e+02
+2024-09-18 14:27:20 (INFO): energy_mae: 1.00e+00, energy_mse: 1.79e+00, loss: 1.00e+00, lr: 1.00e-04, epoch: 5.27e-01, step: 7.80e+02
+2024-09-18 14:27:20 (INFO): energy_mae: 1.02e+00, energy_mse: 1.82e+00, loss: 1.02e+00, lr: 1.00e-04, epoch: 5.34e-01, step: 7.90e+02
+2024-09-18 14:27:20 (INFO): energy_mae: 1.40e+00, energy_mse: 3.27e+00, loss: 1.40e+00, lr: 1.00e-04, epoch: 5.41e-01, step: 8.00e+02
+2024-09-18 14:27:20 (INFO): energy_mae: 1.41e+00, energy_mse: 3.27e+00, loss: 1.41e+00, lr: 1.00e-04, epoch: 5.47e-01, step: 8.10e+02
+2024-09-18 14:27:20 (INFO): energy_mae: 1.66e+00, energy_mse: 4.72e+00, loss: 1.66e+00, lr: 1.00e-04, epoch: 5.54e-01, step: 8.20e+02
+2024-09-18 14:27:21 (INFO): energy_mae: 1.49e+00, energy_mse: 3.79e+00, loss: 1.49e+00, lr: 1.00e-04, epoch: 5.61e-01, step: 8.30e+02
+2024-09-18 14:27:21 (INFO): energy_mae: 9.80e-01, energy_mse: 1.66e+00, loss: 9.80e-01, lr: 1.00e-04, epoch: 5.68e-01, step: 8.40e+02
+2024-09-18 14:27:21 (INFO): energy_mae: 8.45e-01, energy_mse: 1.34e+00, loss: 8.45e-01, lr: 1.00e-04, epoch: 5.74e-01, step: 8.50e+02
+2024-09-18 14:27:21 (INFO): energy_mae: 9.91e-01, energy_mse: 1.77e+00, loss: 9.91e-01, lr: 1.00e-04, epoch: 5.81e-01, step: 8.60e+02
+2024-09-18 14:27:21 (INFO): energy_mae: 9.26e-01, energy_mse: 1.47e+00, loss: 9.26e-01, lr: 1.00e-04, epoch: 5.88e-01, step: 8.70e+02
+2024-09-18 14:27:22 (INFO): energy_mae: 9.74e-01, energy_mse: 1.75e+00, loss: 9.74e-01, lr: 1.00e-04, epoch: 5.95e-01, step: 8.80e+02
+2024-09-18 14:27:22 (INFO): energy_mae: 8.99e-01, energy_mse: 1.38e+00, loss: 8.99e-01, lr: 1.00e-04, epoch: 6.01e-01, step: 8.90e+02
+2024-09-18 14:27:22 (INFO): energy_mae: 8.54e-01, energy_mse: 1.35e+00, loss: 8.54e-01, lr: 1.00e-04, epoch: 6.08e-01, step: 9.00e+02
+2024-09-18 14:27:22 (INFO): energy_mae: 9.25e-01, energy_mse: 1.50e+00, loss: 9.25e-01, lr: 1.00e-04, epoch: 6.15e-01, step: 9.10e+02
+2024-09-18 14:27:22 (INFO): energy_mae: 9.72e-01, energy_mse: 2.05e+00, loss: 9.72e-01, lr: 1.00e-04, epoch: 6.22e-01, step: 9.20e+02
+2024-09-18 14:27:23 (INFO): energy_mae: 8.51e-01, energy_mse: 1.43e+00, loss: 8.51e-01, lr: 1.00e-04, epoch: 6.28e-01, step: 9.30e+02
+2024-09-18 14:27:23 (INFO): energy_mae: 8.67e-01, energy_mse: 1.25e+00, loss: 8.67e-01, lr: 1.00e-04, epoch: 6.35e-01, step: 9.40e+02
+2024-09-18 14:27:23 (INFO): energy_mae: 1.00e+00, energy_mse: 1.75e+00, loss: 1.00e+00, lr: 1.00e-04, epoch: 6.42e-01, step: 9.50e+02
+2024-09-18 14:27:23 (INFO): energy_mae: 1.07e+00, energy_mse: 2.17e+00, loss: 1.07e+00, lr: 1.00e-04, epoch: 6.49e-01, step: 9.60e+02
+2024-09-18 14:27:23 (INFO): energy_mae: 9.22e-01, energy_mse: 1.46e+00, loss: 9.22e-01, lr: 1.00e-04, epoch: 6.55e-01, step: 9.70e+02
+2024-09-18 14:27:24 (INFO): energy_mae: 9.64e-01, energy_mse: 1.71e+00, loss: 9.64e-01, lr: 1.00e-04, epoch: 6.62e-01, step: 9.80e+02
+2024-09-18 14:27:24 (INFO): energy_mae: 1.15e+00, energy_mse: 2.30e+00, loss: 1.15e+00, lr: 1.00e-04, epoch: 6.69e-01, step: 9.90e+02
+2024-09-18 14:27:24 (INFO): energy_mae: 1.05e+00, energy_mse: 1.79e+00, loss: 1.05e+00, lr: 1.00e-04, epoch: 6.76e-01, step: 1.00e+03
+2024-09-18 14:27:24 (INFO): energy_mae: 9.30e-01, energy_mse: 1.59e+00, loss: 9.30e-01, lr: 1.00e-04, epoch: 6.82e-01, step: 1.01e+03
+2024-09-18 14:27:24 (INFO): energy_mae: 8.98e-01, energy_mse: 1.43e+00, loss: 8.98e-01, lr: 1.00e-04, epoch: 6.89e-01, step: 1.02e+03
+2024-09-18 14:27:25 (INFO): energy_mae: 8.87e-01, energy_mse: 1.39e+00, loss: 8.87e-01, lr: 1.00e-04, epoch: 6.96e-01, step: 1.03e+03
+2024-09-18 14:27:25 (INFO): energy_mae: 1.01e+00, energy_mse: 1.83e+00, loss: 1.01e+00, lr: 1.00e-04, epoch: 7.03e-01, step: 1.04e+03
+2024-09-18 14:27:25 (INFO): energy_mae: 1.12e+00, energy_mse: 2.26e+00, loss: 1.12e+00, lr: 1.00e-04, epoch: 7.09e-01, step: 1.05e+03
+2024-09-18 14:27:25 (INFO): energy_mae: 1.16e+00, energy_mse: 2.37e+00, loss: 1.16e+00, lr: 1.00e-04, epoch: 7.16e-01, step: 1.06e+03
+2024-09-18 14:27:25 (INFO): energy_mae: 8.85e-01, energy_mse: 1.42e+00, loss: 8.85e-01, lr: 1.00e-04, epoch: 7.23e-01, step: 1.07e+03
+2024-09-18 14:27:26 (INFO): energy_mae: 8.23e-01, energy_mse: 1.27e+00, loss: 8.23e-01, lr: 1.00e-04, epoch: 7.30e-01, step: 1.08e+03
+2024-09-18 14:27:26 (INFO): energy_mae: 1.13e+00, energy_mse: 2.11e+00, loss: 1.13e+00, lr: 1.00e-04, epoch: 7.36e-01, step: 1.09e+03
+2024-09-18 14:27:26 (INFO): energy_mae: 1.15e+00, energy_mse: 2.30e+00, loss: 1.15e+00, lr: 1.00e-04, epoch: 7.43e-01, step: 1.10e+03
+2024-09-18 14:27:26 (INFO): energy_mae: 1.13e+00, energy_mse: 2.17e+00, loss: 1.13e+00, lr: 1.00e-04, epoch: 7.50e-01, step: 1.11e+03
+2024-09-18 14:27:26 (INFO): energy_mae: 1.29e+00, energy_mse: 2.85e+00, loss: 1.29e+00, lr: 1.00e-04, epoch: 7.57e-01, step: 1.12e+03
+2024-09-18 14:27:26 (INFO): energy_mae: 1.29e+00, energy_mse: 2.61e+00, loss: 1.29e+00, lr: 1.00e-04, epoch: 7.64e-01, step: 1.13e+03
+2024-09-18 14:27:27 (INFO): energy_mae: 1.06e+00, energy_mse: 2.04e+00, loss: 1.06e+00, lr: 1.00e-04, epoch: 7.70e-01, step: 1.14e+03
+2024-09-18 14:27:27 (INFO): energy_mae: 8.97e-01, energy_mse: 1.35e+00, loss: 8.97e-01, lr: 1.00e-04, epoch: 7.77e-01, step: 1.15e+03
+2024-09-18 14:27:27 (INFO): energy_mae: 9.99e-01, energy_mse: 1.80e+00, loss: 9.99e-01, lr: 1.00e-04, epoch: 7.84e-01, step: 1.16e+03
+2024-09-18 14:27:27 (INFO): energy_mae: 9.26e-01, energy_mse: 1.58e+00, loss: 9.26e-01, lr: 1.00e-04, epoch: 7.91e-01, step: 1.17e+03
+2024-09-18 14:27:27 (INFO): energy_mae: 8.41e-01, energy_mse: 1.29e+00, loss: 8.41e-01, lr: 1.00e-04, epoch: 7.97e-01, step: 1.18e+03
+2024-09-18 14:27:28 (INFO): energy_mae: 8.38e-01, energy_mse: 1.25e+00, loss: 8.38e-01, lr: 1.00e-04, epoch: 8.04e-01, step: 1.19e+03
+2024-09-18 14:27:28 (INFO): energy_mae: 1.05e+00, energy_mse: 1.93e+00, loss: 1.05e+00, lr: 1.00e-04, epoch: 8.11e-01, step: 1.20e+03
+2024-09-18 14:27:28 (INFO): energy_mae: 9.93e-01, energy_mse: 1.81e+00, loss: 9.93e-01, lr: 1.00e-04, epoch: 8.18e-01, step: 1.21e+03
+2024-09-18 14:27:28 (INFO): energy_mae: 1.01e+00, energy_mse: 1.66e+00, loss: 1.01e+00, lr: 1.00e-04, epoch: 8.24e-01, step: 1.22e+03
+2024-09-18 14:27:28 (INFO): energy_mae: 8.99e-01, energy_mse: 1.51e+00, loss: 8.99e-01, lr: 1.00e-04, epoch: 8.31e-01, step: 1.23e+03
+2024-09-18 14:27:29 (INFO): energy_mae: 8.62e-01, energy_mse: 1.34e+00, loss: 8.62e-01, lr: 1.00e-04, epoch: 8.38e-01, step: 1.24e+03
+2024-09-18 14:27:29 (INFO): energy_mae: 1.06e+00, energy_mse: 1.96e+00, loss: 1.06e+00, lr: 1.00e-04, epoch: 8.45e-01, step: 1.25e+03
+2024-09-18 14:27:29 (INFO): energy_mae: 9.69e-01, energy_mse: 1.66e+00, loss: 9.69e-01, lr: 1.00e-04, epoch: 8.51e-01, step: 1.26e+03
+2024-09-18 14:27:29 (INFO): energy_mae: 9.00e-01, energy_mse: 1.46e+00, loss: 9.00e-01, lr: 1.00e-04, epoch: 8.58e-01, step: 1.27e+03
+2024-09-18 14:27:29 (INFO): energy_mae: 8.15e-01, energy_mse: 1.16e+00, loss: 8.15e-01, lr: 1.00e-04, epoch: 8.65e-01, step: 1.28e+03
+2024-09-18 14:27:30 (INFO): energy_mae: 8.34e-01, energy_mse: 1.35e+00, loss: 8.34e-01, lr: 1.00e-04, epoch: 8.72e-01, step: 1.29e+03
+2024-09-18 14:27:30 (INFO): energy_mae: 8.92e-01, energy_mse: 1.46e+00, loss: 8.92e-01, lr: 1.00e-04, epoch: 8.78e-01, step: 1.30e+03
+2024-09-18 14:27:30 (INFO): energy_mae: 9.27e-01, energy_mse: 1.55e+00, loss: 9.27e-01, lr: 1.00e-04, epoch: 8.85e-01, step: 1.31e+03
+2024-09-18 14:27:30 (INFO): energy_mae: 9.70e-01, energy_mse: 1.69e+00, loss: 9.70e-01, lr: 1.00e-04, epoch: 8.92e-01, step: 1.32e+03
+2024-09-18 14:27:30 (INFO): energy_mae: 8.12e-01, energy_mse: 1.20e+00, loss: 8.12e-01, lr: 1.00e-04, epoch: 8.99e-01, step: 1.33e+03
+2024-09-18 14:27:31 (INFO): energy_mae: 8.05e-01, energy_mse: 1.21e+00, loss: 8.05e-01, lr: 1.00e-04, epoch: 9.05e-01, step: 1.34e+03
+2024-09-18 14:27:31 (INFO): energy_mae: 8.90e-01, energy_mse: 1.38e+00, loss: 8.90e-01, lr: 1.00e-04, epoch: 9.12e-01, step: 1.35e+03
+2024-09-18 14:27:31 (INFO): energy_mae: 8.27e-01, energy_mse: 1.30e+00, loss: 8.27e-01, lr: 1.00e-04, epoch: 9.19e-01, step: 1.36e+03
+2024-09-18 14:27:31 (INFO): energy_mae: 8.30e-01, energy_mse: 1.32e+00, loss: 8.30e-01, lr: 1.00e-04, epoch: 9.26e-01, step: 1.37e+03
+2024-09-18 14:27:31 (INFO): energy_mae: 7.93e-01, energy_mse: 1.19e+00, loss: 7.93e-01, lr: 1.00e-04, epoch: 9.32e-01, step: 1.38e+03
+2024-09-18 14:27:31 (INFO): energy_mae: 8.30e-01, energy_mse: 1.30e+00, loss: 8.30e-01, lr: 1.00e-04, epoch: 9.39e-01, step: 1.39e+03
+2024-09-18 14:27:32 (INFO): energy_mae: 8.76e-01, energy_mse: 1.43e+00, loss: 8.76e-01, lr: 1.00e-04, epoch: 9.46e-01, step: 1.40e+03
+2024-09-18 14:27:32 (INFO): energy_mae: 8.46e-01, energy_mse: 1.24e+00, loss: 8.46e-01, lr: 1.00e-04, epoch: 9.53e-01, step: 1.41e+03
+2024-09-18 14:27:32 (INFO): energy_mae: 8.15e-01, energy_mse: 1.18e+00, loss: 8.15e-01, lr: 1.00e-04, epoch: 9.59e-01, step: 1.42e+03
+2024-09-18 14:27:32 (INFO): energy_mae: 8.81e-01, energy_mse: 1.33e+00, loss: 8.81e-01, lr: 1.00e-04, epoch: 9.66e-01, step: 1.43e+03
+2024-09-18 14:27:32 (INFO): energy_mae: 1.02e+00, energy_mse: 1.70e+00, loss: 1.02e+00, lr: 1.00e-04, epoch: 9.73e-01, step: 1.44e+03
+2024-09-18 14:27:33 (INFO): energy_mae: 1.15e+00, energy_mse: 2.05e+00, loss: 1.15e+00, lr: 1.00e-04, epoch: 9.80e-01, step: 1.45e+03
+2024-09-18 14:27:33 (INFO): energy_mae: 1.20e+00, energy_mse: 2.37e+00, loss: 1.20e+00, lr: 1.00e-04, epoch: 9.86e-01, step: 1.46e+03
+2024-09-18 14:27:33 (INFO): energy_mae: 1.09e+00, energy_mse: 1.97e+00, loss: 1.09e+00, lr: 1.00e-04, epoch: 9.93e-01, step: 1.47e+03
+2024-09-18 14:27:33 (INFO): energy_mae: 9.93e-01, energy_mse: 1.77e+00, loss: 9.91e-01, lr: 1.00e-04, epoch: 1.00e+00, step: 1.48e+03
+2024-09-18 14:27:33 (INFO): Evaluating on val.
+2024-09-18 14:27:36 (INFO): energy_mae: 0.9027, energy_mse: 1.3709, loss: 0.9029, epoch: 1.0000
+2024-09-18 14:27:36 (INFO): Predicting on test.
+2024-09-18 14:27:38 (INFO): Writing results to /media/mohammed/Work/FORMED_ML/GNN_models/schnet/results/2024-09-18-14-26-40-S1_excschnet/ocp_predictions.npz

@@ -1,0 +1,58 @@
+trainer: OptunaTrained
+
+dataset:
+  train:
+    format: ase_db
+    src: /media/mohammed/Work/FORMED_ML/ase_database/train/formed_train.db
+    key_mapping:
+      S1_exc: energy
+    a2g_args:
+      r_energy: False
+      r_forces: False
+      r_data_keys:
+        - S1_exc
+    keep_in_memory: False
+    include_relaxed_energy: False
+  val:
+    format: ase_db
+    src: /media/mohammed/Work/FORMED_ML/ase_database/val/formed_val.db
+    include_relaxed_energy: False
+    keep_in_memory: False
+    key_mapping:
+      S1_exc: energy
+    a2g_args:
+      r_energy: False
+      r_forces: False
+      r_data_keys:
+        - S1_exc
+  test:
+    format: ase_db
+    src: /media/mohammed/Work/FORMED_ML/ase_database/formed_test.db
+    include_relaxed_energy: False
+    keep_in_memory: False
+    key_mapping:
+      S1_exc: energy
+    a2g_args:
+      r_energy: False
+      r_forces: False
+      r_data_keys:
+        - S1_exc
+
+logger: wandb
+
+outputs:
+  energy:
+    property: energy
+    shape: 1
+    level: system
+
+loss_functions:
+  - energy:
+      fn: mae
+
+evaluation_metrics:
+  metrics:
+    energy:
+      - mae
+      - mse
+  primary_metric: energy_mae

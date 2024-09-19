@@ -1,0 +1,51 @@
+[W CUDAAllocatorConfig.h:30] Warning: expandable_segments not supported on this platform (function operator())
+wandb: Currently logged in as: mohammed-azzouzi15 (azzouzi_lab). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.18.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /media/mohammed/Work/FORMED_ML/GNN_models/schnet/logs/wandb/2024-09-18-14-26-40-S1_excschnet/wandb/run-20240918_142653-2024-09-18-14-26-40-S1_excschnet
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run S1_excschnet
+wandb: ⭐️ View project at https://wandb.ai/azzouzi_lab/FORMED_ML-models
+wandb: 🚀 View run at https://wandb.ai/azzouzi_lab/FORMED_ML-models/runs/2024-09-18-14-26-40-S1_excschnet
+2024-09-18 14:27:03 (WARNING): Could not find dataset metadata.npz files in '[PosixPath('/media/mohammed/Work/FORMED_ML/ase_database/train/formed_train.db')]'
+2024-09-18 14:27:03 (WARNING): Disabled BalancedBatchSampler because num_replicas=1.
+2024-09-18 14:27:03 (WARNING): Failed to get data sizes, falling back to uniform partitioning. BalancedBatchSampler requires a dataset that has a metadata attributed with number of atoms.
+2024-09-18 14:27:04 (WARNING): Could not find dataset metadata.npz files in '[PosixPath('/media/mohammed/Work/FORMED_ML/ase_database/val/formed_val.db')]'
+2024-09-18 14:27:04 (WARNING): Disabled BalancedBatchSampler because num_replicas=1.
+2024-09-18 14:27:04 (WARNING): Failed to get data sizes, falling back to uniform partitioning. BalancedBatchSampler requires a dataset that has a metadata attributed with number of atoms.
+2024-09-18 14:27:05 (WARNING): Could not find dataset metadata.npz files in '[PosixPath('/media/mohammed/Work/FORMED_ML/ase_database/formed_test.db')]'
+2024-09-18 14:27:05 (WARNING): Disabled BalancedBatchSampler because num_replicas=1.
+2024-09-18 14:27:05 (WARNING): Failed to get data sizes, falling back to uniform partitioning. BalancedBatchSampler requires a dataset that has a metadata attributed with number of atoms.
+device 0:   0%|          | 0/180 [00:00<?, ?it/s]device 0:   1%|          | 2/180 [00:00<00:11, 16.17it/s]device 0:   6%|▌         | 11/180 [00:00<00:03, 55.12it/s]device 0:  12%|█▏        | 22/180 [00:00<00:02, 76.67it/s]device 0:  18%|█▊        | 32/180 [00:00<00:01, 84.42it/s]device 0:  23%|██▎       | 42/180 [00:00<00:01, 88.15it/s]device 0:  29%|██▉       | 53/180 [00:00<00:01, 92.87it/s]device 0:  36%|███▌      | 64/180 [00:00<00:01, 96.10it/s]device 0:  41%|████      | 74/180 [00:00<00:01, 97.18it/s]device 0:  47%|████▋     | 85/180 [00:00<00:00, 99.72it/s]device 0:  53%|█████▎    | 95/180 [00:01<00:00, 99.52it/s]device 0:  59%|█████▉    | 106/180 [00:01<00:00, 101.79it/s]device 0:  65%|██████▌   | 117/180 [00:01<00:00, 102.83it/s]device 0:  71%|███████   | 128/180 [00:01<00:00, 102.10it/s]device 0:  77%|███████▋  | 139/180 [00:01<00:00, 101.89it/s]device 0:  83%|████████▎ | 150/180 [00:01<00:00, 102.57it/s]device 0:  89%|████████▉ | 161/180 [00:01<00:00, 103.08it/s]device 0:  96%|█████████▌| 172/180 [00:01<00:00, 103.30it/s]device 0: 100%|██████████| 180/180 [00:01<00:00, 92.93it/s] 
+device 0:   0%|          | 0/165 [00:00<?, ?it/s]device 0:   1%|          | 2/165 [00:00<00:09, 17.92it/s]device 0:   9%|▉         | 15/165 [00:00<00:01, 77.91it/s]device 0:  17%|█▋        | 28/165 [00:00<00:01, 99.69it/s]device 0:  25%|██▍       | 41/165 [00:00<00:01, 108.81it/s]device 0:  33%|███▎      | 54/165 [00:00<00:00, 114.24it/s]device 0:  41%|████      | 68/165 [00:00<00:00, 120.46it/s]device 0:  49%|████▉     | 81/165 [00:00<00:00, 123.37it/s]device 0:  57%|█████▋    | 94/165 [00:00<00:00, 124.89it/s]device 0:  65%|██████▌   | 108/165 [00:00<00:00, 127.38it/s]device 0:  73%|███████▎  | 121/165 [00:01<00:00, 127.97it/s]device 0:  81%|████████  | 134/165 [00:01<00:00, 128.00it/s]device 0:  90%|████████▉ | 148/165 [00:01<00:00, 130.30it/s]device 0:  99%|█████████▉| 163/165 [00:01<00:00, 133.46it/s]device 0: 100%|██████████| 165/165 [00:01<00:00, 116.65it/s]
+wandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.005 MB of 0.005 MB uploadedwandb: | 0.005 MB of 0.005 MB uploadedwandb: / 0.024 MB of 0.049 MB uploadedwandb: - 0.059 MB of 0.059 MB uploadedwandb: 
+wandb: Run history:
+wandb: train/energy_mae █▆▄▄▃▂▃▅▂▃▂▃▁▃▁▁▂▂▂▃▂▄▂▁▂▂▂▁▂▃▂▂▂▂▁▁▁▁▁▁
+wandb: train/energy_mse █▆▃▃▂▂▃▄▂▂▁▂▁▂▁▁▁▁▁▂▁▃▂▁▂▁▂▁▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:      train/epoch ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:       train/loss █▆▄▄▃▂▃▅▂▃▂▃▁▃▁▁▂▂▂▃▂▄▂▁▂▂▂▁▂▃▂▂▂▂▁▁▁▁▁▁
+wandb:         train/lr ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       train/step ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   val/energy_mae ▁
+wandb:   val/energy_mse ▁
+wandb:        val/epoch ▁
+wandb:         val/loss ▁
+wandb: 
+wandb: Run summary:
+wandb:       num_params 1346817
+wandb: train/energy_mae 0.99255
+wandb: train/energy_mse 1.76602
+wandb:      train/epoch 1.0
+wandb:       train/loss 0.991
+wandb:         train/lr 0.0001
+wandb:       train/step 1480
+wandb:   val/energy_mae 0.90268
+wandb:   val/energy_mse 1.3709
+wandb:        val/epoch 1.0
+wandb:         val/loss 0.90289
+wandb: 
+wandb: 🚀 View run S1_excschnet at: https://wandb.ai/azzouzi_lab/FORMED_ML-models/runs/2024-09-18-14-26-40-S1_excschnet
+wandb: ⭐️ View project at: https://wandb.ai/azzouzi_lab/FORMED_ML-models
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: /media/mohammed/Work/FORMED_ML/GNN_models/schnet/logs/wandb/2024-09-18-14-26-40-S1_excschnet/wandb/run-20240918_142653-2024-09-18-14-26-40-S1_excschnet/logs
